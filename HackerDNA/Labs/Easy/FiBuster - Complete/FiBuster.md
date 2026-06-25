@@ -27,7 +27,6 @@ cd /root
 ls
 flag-root.txt
 cat flag-root.txt
-739eabe6-3085-4852-beb2-1d0da7eb1973
 ```
 
 	  
