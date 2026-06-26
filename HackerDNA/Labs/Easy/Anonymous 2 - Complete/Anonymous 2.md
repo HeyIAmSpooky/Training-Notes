@@ -1,6 +1,6 @@
 Room Information: A seemingly innocent FTP server harbors a dark secret - a malicious backdoor inserted by attackers who compromised the official distribution. The vulnerability lies dormant, waiting for the right trigger to unleash remote access. 🎯 Time to discover how compromised software can become your gateway to system control!
 
-Link: https://hackerdna.com/labs/anonymous
+Link: https://hackerdna.com/labs/anonymous-2
 
 Steps
 
